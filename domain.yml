@@ -1,0 +1,276 @@
+version: "3.1"
+
+intents:
+- greet
+- blood_sugar_level
+- health_condition
+- diet
+- symptoms
+- medication
+- diabetes_checkup
+- physical_activity
+- sleep
+- affirm
+- deny
+- inform
+- out_of_scope
+- thankyou
+- ask_diabetes_meaning
+- ask_diabetes_symptoms
+# - diabetes_risks
+# - diabetes_contributing_factors
+# - diabetes_types
+# - diabetes_diagnosis
+# - diabetes_treatment
+# - diabetes_prevention
+# - diabetes_management
+# - diabetes_diet
+# - blood_glucose_levels
+# - prediabetes
+# - insulin_meaning
+# - types_insulin
+# - use_of_insulin
+# - side_effects_of_insulin
+# - miss_dose 
+# - diabetes_pregnancy_risk
+# - pregnancy_diet_exercise
+# - delivery&post-pregnancy_care
+# - managing_during_pregnancy
+
+entities:
+  - blood_sugar_level
+  - health_condition
+  - diet
+  - sleep
+  - symptoms
+  - medication
+  - diabetes_checkup
+  - physical_activity
+
+slots:
+  blood_sugar_level:
+    type: text
+    mappings:
+      - type: from_text
+        intent: inform
+        entities:
+        - blood_sugar_level
+  health_condition:
+    type: text
+    mappings:
+      - type: from_text
+        intent: inform
+        entities:
+        - health_condition
+  diet:
+    type: text
+    mappings:
+      - type: from_text
+        intent: inform
+        entities:
+        - diet
+  symptoms:
+    type: text
+    mappings:
+      - type: from_text
+        intent: inform
+        entities:
+        - symptoms
+  medication:
+    type: text
+    mappings:
+      - type: from_text
+        intent: inform
+        entities:
+        - medication
+  diabetes_checkup:
+    type: text
+    mappings:
+      - type: from_text
+        intent: inform
+        entities:
+        - diabetes_checkup
+  physical_activity:
+    type: text
+    mappings:
+      - type: from_text
+        intent: inform
+        entities:
+        - physical_activity
+  sleep:
+    type: text
+    mappings:
+      - type: from_text
+        intent: inform
+        entities:
+        - sleep
+actions:
+ - utter_greetings
+ - utter_ask_blood_sugar_level
+ - utter_ask_health_condition 
+ - utter_ask_diet
+ - utter_ask_symptoms
+ - utter_ask_diabetes_checkup
+ - utter_ask_medication
+ - utter_ask_physical_activity
+ - utter_ask_sleep
+ - utter_goodbye
+ - utter_ask_continue
+ - utter_no_worries
+ - utter_slot_values
+ - submit_health_form
+ - action_deactivate_form
+ - utter_symptoms
+ - utter_diabetes_meaning
+#  - utter_risks
+#  - utter_contributing_factors
+#  - utter_diabetes_types
+#  - utter_default
+#  - utter_diabetes_test
+#  - utter_treating_for_diabetes
+#  - utter_prevention_for_diabetes
+#  - utter_diabetes_management
+#  - utter_diabetes_diet
+#  - utter_blood_glucose_levels
+#  - utter_prediabetes
+#  - utter_diabetes_insulin_meaning
+#  - utter_types_insulin
+#  - utter_use_of_insulin
+#  - utter_side_effects
+#  - utter_missing_dose_advice
+#  - utter_diabetes_pregnancy_risk
+#  - utter_pregnancy_diet_exercise
+#  - utter_delivery&post_pregnancy_care
+#  - utter_managing_pregnancy
+ 
+
+
+responses:
+ utter_greetings:
+ - text: "Welcome! I am a diabetes conversational bot. Would you like to answer a few questions about your health?"
+ utter_ask_blood_sugar_level:
+ - text: "How often do you check your blood sugar levels?"
+ utter_ask_health_condition:
+ - text: "Do you have any other health conditions that you are currently being treated for?"
+ utter_ask_diet:
+ - text: "What is your current diet like? Are you following any specific meal plan?"
+ utter_ask_symptoms:
+ - text: "What symptoms are you experiencing? For example, frequent urination, excessive thirst, kidney problems, blurry vision, etc"
+
+ utter_ask_diabetes_checkup:
+ - text: "When was your last visit to the endocrinologist or diabetes specialist?"
+
+ utter_ask_medication:
+ - text: "What medications are you currently taking to manage your diabetes?"
+ 
+ utter_ask_physical_activity:
+ - text: "How much physical activity do you get in a day?"
+
+ utter_ask_sleep:
+ - text: "How much sleep do you get in a day?"
+
+ utter_goodbye:
+ - text: "Goodbye :("
+
+ utter_ask_continue:
+ - text: "Would you wish to continue answering a few questions about your health?"
+
+ utter_no_worries:
+ - text: "My pleasure." 
+
+ utter_diabetes_meaning:
+ - text: "Diabetes is a chronic condition that occurs when the body is unable to properly use and store glucose (a type of sugar). Glucose is the body's main source of energy, and it comes from the foods we eat. In people with diabetes, the body either does not produce enough insulin (a hormone that regulates blood sugar) or the cells do not respond properly to insulin. As a result, glucose builds up in the blood instead of being used for energy. There are three main types of diabetes: Type 1 diabetes; this type of diabetes is an autoimmune disease, in which the body's immune system attacks and destroys the cells in the pancreas that produce insulin. As a result, people with type 1 diabetes need to take insulin injections to control their blood sugar levels"
+ utter_symptoms:
+
+ - text: "Signs and symptoms of diabetes include: intense thirst, frequent urination, particularly at night, unexplained weight loss, increased appetite, fatigue, slow-healing wounds. The symptoms of Type 1 diabetes may develop rapidly over days and weeks In contrast, those with type 2 diabetes may not be aware of their condition as the symptoms may only be evident later"
+
+ utter_slot_values:
+ - text: "Here's your daily welness log:\n
+            - blood_sugar_level: {blood_sugar_level}\n
+            - health_condition: {health_condition}\n
+            - diet: {diet}\n
+            - sleep: {sleep}\n
+            - symptoms: {symptoms}\n
+            - medication: {medication}\n
+            - diabetes_checkup: {diabetes_checkup}\n
+            - physical_activity: {physical_activity}"
+
+
+
+#  utter_risks:
+#  - text: "Diabetes can lead to a number of serious health complications if not properly managed. Some of the potential complications include cardiovascular disease, kidney damage, nerve damage, eye damage, foot damage and increased risk of infection. In gestational diabetes high blood sugar levels in the mother can increase risk of complcations during pregnancy and child birth. It is important for people with diabetes to carefully manage their condition to reduce their risk of complications. This includes taking medications as prescribed, eating a healthy diet, getting regular exercise, and monitoring their blood sugar levels"
+
+#  utter_contributing_factors:
+#  - text: "There are several factors that can contribute to the development of diabetes, including: genetics where if you have a family history of diabetes you may be more likely to develop the condition; obesity in that excess weight especially around the waist increases the risk of developing type 2 diabetes; lack of physical activity where people who are inactive are more likely to develop diabetes, as physical activity helps to regulate blood sugar levels; poor diet in the sense that diet high in refined carbohydrates, such as sugary drinks and snacks can increase the risk of diabetes;avoid tobacco and alcohol intake."
+
+#  utter_diabetes_types:
+#  - text: "There are three main types of diabetes: type 1 diabetes, this type of diabetes is an autoimmune disease, in which the body's immune system attacks and destroys the cells in the pancreas that produce insulin. As a result, people with type 1 diabetes need to take insulin injections to control their blood sugar levels; type 2 diabetes, this is the most common type of diabetes, and it is often associated with obesity and a sedentary lifestyle. In type 2 diabetes, the body becomes resistant to the effects of insulin, and the pancreas may not produce enough insulin to meet the body's needs; gestational diabetes, this type of diabetes occurs during pregnancy and usually goes away after delivery. However, women who have had gestational diabetes are at an increased risk of developing type 2 diabetes later in life"
+
+#  utter_default:
+#     - text: "Sorry, I didn't get that, can you rephrase?"
+
+#  utter_diabetes_test:
+#  - text: "There are several tests that can be used to diagnose diabetes, including: fasting blood sugar test: this test measures your blood sugar after an overnight fast. A normal fasting blood sugar level is less than 100 mg/dL. A fasting blood sugar level of 126 mg/dL or higher indicates diabetes. Oral glucose tolerance test: this test measures your blood sugar after you have fasted for at least 8 hours and then again 2 hours after you drink a sweet beverage. A normal blood sugar level is less than 140 mg/dL, 2 hours after the beverage. A blood sugar level of 200 mg/dL or higher indicates diabetes. A1C test: This test measures your average blood sugar level over the past 2-3 months. An A1C level of 6.5% or higher indicates diabetes. Random blood sugar test: This test measures your blood sugar at any time of day, regardless of when you last ate. A blood sugar level of 200 mg/dL or higher, along with symptoms of diabetes (such as frequent urination, excessive thirst, and unexplained weight loss), may indicate diabetes"   
+
+#  utter_treating_for_diabetes:
+#  - text: "Medical interventions that may be used to treat diabetes include: insulin injections: People with type 1 diabetes and some people with type 2 diabetes may need to take insulin injections to help regulate their blood sugar levels. Oral medications: there are several oral medications that can be taken to help control blood sugar levels in people with type 2 diabetes. Continuous glucose monitoring: this involves wearing a device that measures blood sugar levels continuously throughout the day and night. Insulin pumps: These devices deliver a continuous supply of insulin through a small tube that is inserted under the skin"
+
+#  utter_prevention_for_diabetes:
+#  - text: "There are several things that you can do to reduce your risk of developing diabetes or prevent progression to diabetes if one has prediabetes: maintain a healthy weight, excess weight especially around the waist, increases the risk of developing type 2 diabetes. Exercise regularly, physical activity can help to regulate blood sugar levels and improve insulin sensitivity. Aim for at least 150 minutes of moderate-intensity exercise per week. Eat a healthy diet; a diet that includes a variety vegetables, fruits, whole grains, and lean proteins can help to regulate blood sugar levels. Avoid sugary drinks and snacks and limit your intake of refined carbohydrates. Don't smoke as it increases the risk of developing diabetes and can worsen the complications of the disease.Get regular medical check-ups; if you are at high risk of developing diabetes, your doctor may recommend that you have your blood sugar levels checked regularly. All this is is necessary because once you develop diabetes it can not be cured but only managed"
+
+#  utter_diabetes_management:
+#  - text: "Managing diabetes involves a combination of lifestyle changes and medical interventions.To manage your diabetes, you should: take your medications as prescribed; if you are prescribed insulin or oral medications, be sure to take them as directed by your healthcare team. Test your blood sugar regularly as recommended by your healthcare team. Exercise regularly. Monitor your blood pressure; high blood pressure can increase the risk of complications in people with diabetes. Diabetes can cause nerve damage and poor circulation, which can increase the risk of foot problems. Take care of your feet by washing them daily, wearing comfortable shoes, and checking your feet regularly for cuts, blisters, and other problems"
+
+#  utter_diabetes_diet:
+#  - text: "The best diet for people with diabetes is one that is balanced and includes a variety of nutrient-dense foods. Some examples of such foods are: Vegetables, including leafy greens, bell peppers, tomatoes, and onions: Fruits, such as apples, bananas, and berries: Carbohydrates i.e., Whole grains, such as oats, quinoa, and brown rice: Lean proteins, such as chicken, turkey, and tofu: Healthy fats, such as olive oil, avocado, and nuts: Monitor portion sizes to help maintain a healthy weight: Stay hydrated by drinking plenty of water. Honey is a source of natural sugars and should be used in moderation, as with any sweetener.
+#  Avoid Foods high in added sugars, such as candy, soda, baked goods: foods high in unhealthy fats, such as fried foods and processed snack foods: Foods that are high in refined carbs, such as white bread, pasta, and pastries: Avoiding tobacco and limiting alcohol intake."
+#  utter_blood_glucose_levels:
+#  - text: " A normal blood glucose level is between 70-100 mg/dL before meals and less than 140 mg/dL after meals. Blood glucose levels can fluctuate due to many factors such as diet, exercise, illness, stress, or medications. Hypoglycemia is a condition characterized by low blood glucose levels, usually below 70 mg/dL. It can be treated by eating or drinking something that contains glucose, such as a piece of fruit or a glass of orange juice. Hyperglycemia is a condition characterized by high blood glucose levels, usually above 180 mg/dL. It can be treated by taking medications as directed, adjusting diet and exercise habits, and checking blood glucose levels regularly. To stabilize blood glucose levels, it is important to eat a balanced diet, engage in regular physical activity, take any prescribed medications as directed, and check blood glucose levels regularly."
+
+#  utter_prediabetes:
+#  - text: "Prediabetes is a condition in which a person's blood sugar levels are higher than normal, but not high enough to be classified as type 2 diabetes. It is important to note that prediabetes is not the same as type 2 diabetes, but it does increase the risk of developing it. However, the good news is that prediabetes can be treated and even prevented through lifestyle changes such as eating a healthy diet that includes a variety of vegetables, fruits, whole grains, lean protein sources, and healthy fats, and getting regular physical exercise and losing weight. It is also important to limit or avoid sugary drinks and foods, and to be mindful of portion sizes. While certain medications may also be used to treat prediabetes, lifestyle changes are the most effective way to manage the condition. Signs of prediabetes include increased thirst, frequent urination, and fatigue, but it is important to note that these symptoms can also be caused by other conditions, so it is important to seek medical advice for a proper diagnosis. The length of time it takes to treat prediabetes can vary depending on the individual and the severity of their condition, but making lifestyle changes and working closely with a healthcare provider to develop an appropriate treatment plan can help prevent or delay the progression to type 2 diabetes."
+
+#  utter_diabetes_insulin_meaning:
+#   - text: "an animal-derived or synthetic form of insulin used to treat diabetes"
+
+#  utter_types_insulin:
+#   - text: "There are several different types of insulin available, including rapid-acting, short-acting, intermediate-acting, and long-acting. Your doctor will determine the best type for you based on your needs"
+
+#  utter_use_of_insulin:
+#  - text: "Insulin is usually injected using a needle and syringe, or with an insulin pen. Your healthcare provider will show you how to properly inject insulin. It's important to follow their instructions and to be consistent with your insulin doses."
+
+#  utter_side_effects:
+#  - text: "Some common side effects of insulin include low blood sugar (hypoglycemia), weight gain, and skin irritation at the injection site. Less common side effects may include allergic reactions, low potassium levels, and changes in blood pressure. It's important to talk to your healthcare provider about any side effects you experience while taking insulin."
+
+#  utter_missing_dose_advice:
+#  - text: "f you miss a dose of insulin, your blood sugar levels may become too high, which can lead to potential complications. It's important to contact your healthcare provider as soon as possible for guidance on what to do next."
+
+#  utter_diabetes_pregnancy_risk:
+#  - text: " Pregnant women with diabetes are at an increased risk for complications such as high blood sugar levels, preterm labor, and high blood pressure. It's important to work closely with your healthcare provider to manage your diabetes and reduce the risk of complications"
+
+#  utter_pregnancy_diet_exercise:
+#  - text: "To ensure the best outcome for both you and your baby during pregnancy, it's important to eat a healthy, balanced diet when you have diabetes. This may include a variety of foods from all food groups, such as whole grains, fruits and vegetables, protein sources, and healthy fats. A registered dietitian or a healthcare provider can help you create a meal plan that meets your individual needs and goals.When pregnant and living with diabetes, it's important to stay active and engage in regular physical activity. This can help you manage your blood sugar levels, maintain a healthy weight, and improve your overall well-being. It's important to speak with your healthcare provider about what types of exercise are safe for you during pregnancy. Some options may include walking, swimming, and low-impact aerobics."
+
+#  utter_delivery&post_pregnancy_care:
+#  - text: "Individuals with diabetes may need to carefully manage their blood sugar levels and monitor for complications during delivery and post-pregnancy care. Your healthcare team will also provide support with breastfeeding and nutrition. They will work with you to create a plan that meets your specific needs and ensures the best possible outcome for you and your baby."
+
+#  utter_managing_pregnancy:
+#  - text: "To manage your diabetes during pregnancy, it's important to work closely with your healthcare team to create a treatment plan that includes a healthy diet, regular physical activity, and insulin therapy if needed. Regular blood sugar monitoring and attending all prenatal appointments will also help ensure the best outcome for both you and your baby."
+
+forms:
+  health_form:
+    required_slots:
+        - blood_sugar_level 
+        - health_condition 
+        - diet 
+        - symptoms 
+        - medication 
+        - diabetes_checkup 
+        - physical_activity 
+        - sleep 
+
+
+
+session_config:
+ session_expiration_time: 60.0
+ carry_over_slots_to_new_session: true

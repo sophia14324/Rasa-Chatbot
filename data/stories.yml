@@ -1,0 +1,219 @@
+version: "3.1"
+
+stories:
+- story: survey happy path
+  steps:
+  - intent: greet
+  - action: utter_greetings
+  - intent: affirm
+  - action: health_form
+  - active_loop: health_form
+  - active_loop: null
+  - action: utter_slot_values
+  - intent: thankyou
+  - action: utter_no_worries
+  - action: utter_goodbye
+
+- story: survey stop
+  steps:
+  - intent: greet
+  - action: utter_greetings
+  - intent: affirm
+  - action: health_form
+  - active_loop: health_form
+  - intent: out_of_scope
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_goodbye
+
+- story: survey continue
+  steps:
+  - intent: greet
+  - action: utter_greetings
+  - intent: affirm
+  - action: health_form
+  - active_loop: health_form
+  - intent: out_of_scope
+  - action: utter_ask_continue
+  - intent: affirm
+  - action: health_form
+  - active_loop: health_form
+  - active_loop: null
+  - action: utter_slot_values
+
+- story: no survey 
+  steps:
+  - intent: greet
+  - action: utter_greetings
+  - intent: deny
+  - action: utter_goodbye
+
+- story: ask health questions form
+  steps:
+  - intent: greet
+  - action: utter_greetings
+  - intent: affirm
+  - action: health_form
+  - active_loop: health_form
+  - intent: blood_sugar_level
+  - action: utter_ask_blood_sugar_level
+  - action: health_form
+  - active_loop: null
+  - intent: health_condition
+  - action: utter_ask_health_condition
+  - action: health_form
+  - active_loop: null
+  - intent: diet
+  - action: utter_ask_diet
+  - action: health_form
+  - active_loop: null
+  - intent: symptoms
+  - action: utter_ask_symptoms
+  - action: health_form
+  - active_loop: null
+  - intent: medication
+  - action: utter_ask_medication
+  - action: health_form
+  - active_loop: null
+  - intent: diabetes_checkup
+  - action: utter_ask_diabetes_checkup
+  - action: health_form
+  - active_loop: null
+  - intent: physical_activity
+  - action: utter_ask_physical_activity
+  - action: health_form
+  - active_loop: null
+  - intent: sleep
+  - action: utter_ask_sleep
+  - action: health_form
+  - active_loop: null
+  - intent: affirm
+  - action: submit_health_form
+
+
+
+- story: greet and tell meaning
+  steps:
+  - intent: greet
+  - action: utter_greetings
+  - intent: ask_diabetes_meaning
+  - action: utter_diabetes_meaning
+
+- story: greet and tell symptoms
+  steps:
+  - intent: greet
+  - action: utter_greetings
+  - intent: ask_diabetes_symptoms
+  - action: utter_symptoms
+       
+
+
+ 
+#- story: diagnosis_treatment_management
+#   steps:
+#   - intent: greet
+#   - action: utter_greetings
+#   - intent: diabetes_diagnosis
+#   - action: utter_diabetes_test
+#   - intent: diabetes_treatment
+#   - action: utter_treating_for_diabetes
+#   - intent: diabetes_management
+#   - action: utter_diabetes_management
+  
+# - story: risk_prevention_diet
+#   steps:
+#   - intent: diabetes_risks
+#   - action: utter_risks
+#   - intent: diabetes_prevention
+#   - action: utter_prevention_for_diabetes
+#   - intent: diabetes_diet
+#   - action: utter_diabetes_diet
+  
+# - story: types_contributors_prevention
+#   steps:
+#   - intent: diabetes_types
+#   - action: utter_diabetes_types
+#   - intent: diabetes_contributing_factors
+#   - action: utter_contributing_factors
+#   - intent: diabetes_prevention
+#   - action: utter_prevention_for_diabetes
+  
+# - story: meaning_types_management
+#   steps:
+#   - intent: diabetes_meaning
+#   - action: utter_diabetes_meaning
+#   - intent: diabetes_types
+#   - action: utter_diabetes_types
+  
+# - story: blood_sugar_regulation_diabetes
+#   steps:
+#   - intent: diabetes_diagnosis
+#   - action: utter_diabetes_test
+#   - intent: blood_glucose_levels
+#   - action:  utter_blood_glucose_levels
+  
+# - story: Insulin_management_diabetes
+#   steps:
+#   - intent: insulin_meaning
+#   - action: utter_diabetes_insulin_meaning
+#   - intent: use_of_insulin
+#   - action: utter_use_of_insulin
+#   - intent: types_insulin
+#   - action: utter_types_insulin
+#   - intent: side_effects_of_insulin
+#   - action: utter_side_effects
+  
+# - story: prediabetes_and_diabetes
+#   steps:
+#   - intent: prediabetes
+#   - action: utter_prediabetes
+#   - intent: symptoms_of_diabetes
+#   - action: utter_symptoms
+#   - intent: diabetes_diet
+#   - action: utter_diabetes_diet
+
+# - story: pregnancy_and_diabetes
+#   steps:
+#   - intent: diabetes_pregnancy_risk
+#   - action: utter_diabetes_pregnancy_risk
+#   - intent: managing_during_pregnancy
+#   - action: utter_managing_pregnancy
+#   - intent: pregnancy_diet_exercise
+#   - action: utter_pregnancy_diet_exercise
+
+# - story: insulin_side_effects_miss_dose
+#   steps:
+#   - intent: diabetes_meaning
+#   - action: utter_diabetes_meaning
+#   - intent: insulin_meaning
+#   - action: utter_diabetes_insulin_meaning
+#   - intent: types_insulin
+#   - action: utter_types_insulin
+#   - intent: use_of_insulin
+#   - action: utter_use_of_insulin
+#   - intent: side_effects_of_insulin
+#   - action: utter_side_effects
+#   - intent: miss_dose
+#   - action: utter_missing_dose_advice
+
+# - story: diabetes_pregnancy_diet_exercise
+#   steps:
+#   - intent: diabetes_pregnancy_risk
+#   - action: utter_diabetes_pregnancy_risk
+#   - intent: pregnancy_diet_exercise
+#   - action: utter_pregnancy_diet_exercise
+
+# - story:  post_pregnancy_care
+#   steps:
+#   - intent: pregnancy_diet_exercise
+#   - action: utter_pregnancy_diet_exercise
+#   - intent: delivery&post-pregnancy_care
+#   - action: utter_delivery&post_pregnancy_care
+#   - intent: managing_during_pregnancy
+#   - action: utter_managing_pregnancy
+
+

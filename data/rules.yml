@@ -1,0 +1,33 @@
+
+rules:
+
+# - rule: Say goodbye anytime the user says goodbye
+#   steps:
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - rule: Activate health_form
+#   steps:
+#   - action: health_form
+#   - active_loop: health_form
+
+
+#   - rule: Activate health_form
+#   steps:
+#   - action: health_form
+#   - active_loop: health_form
+
+#   - rule: Activate health_form
+#   steps:
+#   - action: health_form
+#   - active_loop: health_form
+
+
+#   - rule: Activate health_form
+#   steps:
+#   - action: health_form
+#   - active_loop: health_form
+- rule: Activate health_form
+  steps:
+  - action: health_form
+  - active_loop: health_form
